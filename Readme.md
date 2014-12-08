@@ -84,7 +84,7 @@ About
 Version
 ----------
 * v0.2 -- (08 Dec 2014)
-KIR, HLA gene list compiled. All five regions fetched from NCBI.
+KIR, HLA gene list compiled. All five regions fetched from NCBI. Credit for `transform.xsl` goes to Pierre Lindenbaum, 06 Dec 2014, https://www.biostars.org/p/122680/#122689 .
 * v0.1 -- (02 Dec 2014) 
 BRCA1, BRCA2, SMA genes on hg19 and hg38 FASTA files created. 
 
@@ -92,3 +92,11 @@ Notes
 ----------
 * v0.2 -- The previous version can be found at https://gist.github.com/nouyang-curoverse/b17a3820d2ccf36f3e47
 * v0.1 -- The python `exactsearch.py` program is documented in the source code at https://gist.github.com/nouyang-curoverse/b17a3820d2ccf36f3e47
+
+License
+----------
+Public Domain
+
+Author
+----------
+Nancy Ouyang (nancy@curoverse.com)
