@@ -20,61 +20,59 @@ I created a collection of the FASTA files for the above regions of interest as d
 The FASTA files are in the `FASTA` directory and total ~8 MB. They are named `GeneName-NCBIGeneID`.fa for searching convenience.
 
     FASTA
-				HLA
-						(28 files)
-				KIR
-						(17 files)
-				SMA-6606.fa
-				BRCA2-675.fa
-				BRCA1-672.fa
+	    HLA
+		    (28 files)
+	    KIR
+		    (17 files)
+	    SMA-6606.fa
+		    BRCA2-675.fa
+		    BRCA1-672.fa
 
-Preview the collection contents at
+**Preview the collection contents**
 
-A. https://workbench.qr1hi.arvadosapi.com/collections/qr1hi-4zz18-7zk4muy5grnaqpv# (login with any google account)
+*  https://workbench.qr1hi.arvadosapi.com/collections/qr1hi-4zz18-7zk4muy5grnaqpv# (login with any google account)
+*  https://workbench.qr1hi.arvadosapi.com/collections/download/qr1hi-4zz18-7zk4muy5grnaqpv/4qji0cfumh25dttlwteo6rj2b83z2b8vz1l0rja3uzo82bf3s/ (public)
 
-or at
+Besides the FASTA directory, there are two other directories, `NCBIGeneXML` and `GeneRefSeqCoordinates`, which contain the intermediate output used to fetch the FASTA files. In total, the collection size is ~65 MB.
 
-B. https://workbench.qr1hi.arvadosapi.com/collections/download/qr1hi-4zz18-7zk4muy5grnaqpv/4qji0cfumh25dttlwteo6rj2b83z2b8vz1l0rja3uzo82bf3s/
-
-The other two directories, `NCBIGeneXML` and `GeneRefSeqCoordinates`, contain the intermediate output used to fetch the FASTA files. In total, the collection size is ~65 MB.
-
-To download the entire collection contents
+**Download the entire collection contents**
 
 A. if you have access to an Arvados VM
     
-		arv get qr1hi-4zz18-7zk4muy5grnaqpv . #note trailing dot!
+    arv get qr1hi-4zz18-7zk4muy5grnaqpv . #note trailing dot!
 
 B. otherwise, they are publicly available
 
-		wget --mirror --no-parent --no-host --cut-dirs=3 https://workbench.qr1hi.arvadosapi.com/collections/download/qr1hi-4zz18-7zk4muy5grnaqpv/4qji0cfumh25dttlwteo6rj2b83z2b8vz1l0rja3uzo82bf3s/
+    wget --mirror --no-parent --no-host --cut-dirs=3 https://workbench.qr1hi.arvadosapi.com/collections/download/qr1hi-4zz18-7zk4muy5grnaqpv/4qji0cfumh25dttlwteo6rj2b83z2b8vz1l0rja3uzo82bf3s/
 
-The process I used to create these FASTA files is described below.
 
 Extract Sequences Yourself
 -----------
 In short:
 
-		$ git clone <this repository>
-		$ sh ./geneID_to_refseq_regions.sh ids.csv
+    $ git clone <this repository>
+    $ sh ./geneID_to_refseq_regions.sh ids.csv
 
+
+This describes the process I used to create these FASTA files.
 First, compile a list of GeneIDs for each region. I did this by hand in a google doc and the results are at in this repository: `ids.csv`.
 
-		BRCA1,672
-		BRCA2,675
-		[...]
-		V,352962
+    BRCA1,672
+    BRCA2,675
+    [...]
+    V,352962
 		
 Note: For the HLA genes, I used the IMGT list of gene names, found at ftp://ftp.ebi.ac.uk/pub/databases/ipd/imgt/hla/fasta/ . For the KIR genes, I used NCBI Gene query to list all the KIR genes. http://www.ncbi.nlm.nih.gov/gene and `"Homo sapiens"[porgn] AND KIR`
 
 Then, modify the `geneID_to_refseq_regions.sh` file to run as many times as there are genes / lines in the ids.csv file.
 
-		$ vi geneID_to_refseq_regions.sh
-				for run in {1..48} #change this!
+    $ vi geneID_to_refseq_regions.sh
+		    for run in {1..48} #change this!
 
 Then, run the script against the CSV file of genes. Make sure that you have `xsltproc` installed if you do not already, and that `transform.xsl` is in your root directory.
 
-		$ sudo apt-get install xsltproc
-		$ sh ./geneID_to_refseq_regions.sh ids.csv
+    $ sudo apt-get install xsltproc
+    $ sh ./geneID_to_refseq_regions.sh ids.csv
 
 All files will be output to the root directory. Sort by filetype and move into separate folders as you wish.
 
