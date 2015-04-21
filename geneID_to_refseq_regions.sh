@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Die on errors
+set -e
+
 GENEIDFILE=$1
 NUMLINES=$(wc -l $GENEIDFILE | cut -d ' ' -f1)
 echo $NUMLINES
