@@ -30,8 +30,8 @@ The FASTA files are in the `FASTA` directory and total ~8 MB. They are named `Ge
 
 **Preview the collection contents**
 
-*  https://workbench.qr1hi.arvadosapi.com/collections/qr1hi-4zz18-7zk4muy5grnaqpv# (login with any google account)
-*  https://workbench.qr1hi.arvadosapi.com/collections/download/qr1hi-4zz18-7zk4muy5grnaqpv/4qji0cfumh25dttlwteo6rj2b83z2b8vz1l0rja3uzo82bf3s/ (public)
+*  https://workbench.qr1hi.arvadosapi.com/collections/qr1hi-4zz18-7zk4muy5grnaqpv#
+* (deprecated-but-functional sharing link) https://workbench.qr1hi.arvadosapi.com/collections/download/qr1hi-4zz18-7zk4muy5grnaqpv/2sf3n5y9nuqhi815xioxa2ychioyqts7i5ysxg5we8fdl988az/
 
 Besides the FASTA directory, there are two other directories, `NCBIGeneXML` and `GeneRefSeqCoordinates`, which contain the intermediate output used to fetch the FASTA files. In total, the collection size is ~65 MB.
 
@@ -43,7 +43,8 @@ A. if you have access to an Arvados VM
 
 B. otherwise, they are publicly available
 
-    wget --mirror --no-parent --no-host --cut-dirs=3 https://workbench.qr1hi.arvadosapi.com/collections/download/qr1hi-4zz18-7zk4muy5grnaqpv/4qji0cfumh25dttlwteo6rj2b83z2b8vz1l0rja3uzo82bf3s/
+    wget --mirror --no-parent --no-host --cut-dirs=3 https://workbench.qr1hi.arvadosapi.com/collections/download/qr1hi-4zz18-7zk4muy5grnaqpv/2sf3n5y9nuqhi815xioxa2ychioyqts7i5ysxg5we8fdl988az/
+
 
 
 Extract Sequences Yourself
