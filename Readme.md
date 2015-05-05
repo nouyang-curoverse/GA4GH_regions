@@ -25,8 +25,8 @@ The FASTA files are in the `FASTA` directory and total ~8 MB. They are named `Ge
 	    KIR
 		    (17 files)
 	    SMA-6606.fa
-		    BRCA2-675.fa
-		    BRCA1-672.fa
+	    BRCA2-675.fa
+	    BRCA1-672.fa
 
 **Preview the collection contents**
 
@@ -53,6 +53,8 @@ In short:
     $ git clone <this repository>
     $ sh ./geneID_to_refseq_regions.sh ids.csv
 
+
+Note that the [Entrez Direct](http://www.ncbi.nlm.nih.gov/books/NBK179288/) tools must be available on your PATH.
 
 This describes the process I used to create these FASTA files.
 First, compile a list of GeneIDs for each region. I did this by hand in a google doc and the results are at in this repository: `ids.csv`.
